@@ -11,6 +11,8 @@
 		CE2874C91AF970120091AE1B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2874C81AF970120091AE1B /* Images.xcassets */; };
 		CE2874CC1AF970120091AE1B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2874CA1AF970120091AE1B /* MainMenu.xib */; };
 		CE2874D81AF970120091AE1B /* BusyBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2874D71AF970120091AE1B /* BusyBoardTests.swift */; };
+		CE2874E31AF971330091AE1B /* BusyBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2874E11AF971330091AE1B /* BusyBoardWindowController.swift */; };
+		CE2874E41AF971330091AE1B /* BusyBoardWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2874E21AF971330091AE1B /* BusyBoardWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		CE2874D11AF970120091AE1B /* BusyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2874D61AF970120091AE1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE2874D71AF970120091AE1B /* BusyBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusyBoardTests.swift; sourceTree = "<group>"; };
+		CE2874E11AF971330091AE1B /* BusyBoardWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusyBoardWindowController.swift; sourceTree = "<group>"; };
+		CE2874E21AF971330091AE1B /* BusyBoardWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusyBoardWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 				CE2874C81AF970120091AE1B /* Images.xcassets */,
 				CE2874CA1AF970120091AE1B /* MainMenu.xib */,
 				CE2874C41AF970120091AE1B /* Supporting Files */,
+				CE2874E11AF971330091AE1B /* BusyBoardWindowController.swift */,
+				CE2874E21AF971330091AE1B /* BusyBoardWindowController.xib */,
 			);
 			path = BusyBoard;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			files = (
 				CE2874C91AF970120091AE1B /* Images.xcassets in Resources */,
 				CE2874CC1AF970120091AE1B /* MainMenu.xib in Resources */,
+				CE2874E41AF971330091AE1B /* BusyBoardWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2874C71AF970120091AE1B /* AppDelegate.swift in Sources */,
+				CE2874E31AF971330091AE1B /* BusyBoardWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +334,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = BusyBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,6 +346,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = BusyBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

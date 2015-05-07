@@ -8,14 +8,22 @@
 
 import Cocoa
 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+    var busyBoardWindowController: BusyBoardWindowController?
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        
+        let busyBoardWindowController = BusyBoardWindowController()
+        
+        // put the BusyBoard window on the screen
+        busyBoardWindowController.showWindow(self)
+        
+        // set the property to point to the window controller
+        self.busyBoardWindowController = busyBoardWindowController
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
