@@ -26,6 +26,7 @@ class BusyBoardWindowController: NSWindowController {
     @IBOutlet weak var redTextField: NSTextField!
     @IBOutlet weak var greenTextField: NSTextField!
     @IBOutlet weak var blueTextField: NSTextField!
+    @IBOutlet weak var alphaTextField: NSTextField!
     
     // variables
     
@@ -218,6 +219,60 @@ class BusyBoardWindowController: NSWindowController {
         }
     
         
+    }
+    
+    
+    // colorwell action function
+    
+    @IBAction func colorWellChanged(sender: NSColorWell) {
+        var red:        CGFloat = 0
+        var green:      CGFloat = 0
+        var bllue:      CGFloat = 0
+        var alpha:      CGFloat = 0
+        
+        var color: NSColor!
+        
+        color = sender.color
+        
+        // color is in an unknown colorspace - attempting to extract RGBA components could raise an exception
+        var colorSpace = NSColorSpace.genericRGBColorSpace
+        color = color.colorUsingColorSpace(colorSpace())
+        if color != nil
+        {
+            // we successfully converted color to color within RGB colorspace
+            
+            color.getRed(&red,
+                green: &green,
+                blue: &bllue,
+                alpha: &alpha)
+            
+            var componentStr = "red = \(red)"
+            redTextField.stringValue = componentStr
+            
+            componentStr = "green = \(green)"
+            greenTextField.stringValue = componentStr
+            
+            componentStr = "blue = \(bllue)"
+            blueTextField.stringValue = componentStr
+            
+            componentStr = "alpha = \(alpha)"
+            alphaTextField.stringValue = componentStr
+        }
+        else
+        {
+            // unable to convert to color within RGB color space
+            var componentStr = "red = n/a"
+            redTextField.stringValue = componentStr
+            
+            componentStr = "green = n/a"
+            greenTextField.stringValue = componentStr
+            
+            componentStr = "blue = n/a"
+            blueTextField.stringValue = componentStr
+            
+            componentStr = "alpha = n/a"
+            alphaTextField.stringValue = componentStr
+        }
     }
     
     

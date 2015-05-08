@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BusyBoardWindowController" customModule="BusyBoard" customModuleProvider="target">
             <connections>
+                <outlet property="alphaTextField" destination="P4S-lB-lzd" id="1GW-Fq-sd9"/>
                 <outlet property="blueTextField" destination="6sk-3v-pB4" id="0zS-EV-jER"/>
                 <outlet property="checkBox" destination="LQ1-I2-2uU" id="hZ1-W8-jEV"/>
                 <outlet property="clearTextField" destination="Gh7-aQ-o4I" id="5wk-K0-yTG"/>
@@ -63,6 +64,9 @@
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <allowedInputSourceLocales>
+                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                            </allowedInputSourceLocales>
                         </secureTextFieldCell>
                         <connections>
                             <action selector="passwordChanged:" target="-2" id="pWA-fs-eFP"/>
@@ -80,7 +84,7 @@
                         <rect key="frame" x="483" y="139" width="122" height="19"/>
                         <buttonCell key="cell" type="roundRect" title="Reveal" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kmM-IO-8qj">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
                             <action selector="revealButtonPressed:" target="-2" id="csC-9s-lw9"/>
@@ -90,7 +94,7 @@
                         <rect key="frame" x="20" y="19" width="122" height="19"/>
                         <buttonCell key="cell" type="roundRect" title="Reset Controls" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RjP-BA-9EA">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
                             <action selector="resetControls:" target="-2" id="14Z-an-DVh"/>
@@ -99,9 +103,12 @@
                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4O-cW-NhC">
                         <rect key="frame" x="312" y="238" width="44" height="23"/>
                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="colorWellChanged:" target="-2" id="Fl1-Jg-m0t"/>
+                        </connections>
                     </colorWell>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9HB-bD-yQa">
-                        <rect key="frame" x="387" y="271" width="40" height="17"/>
+                        <rect key="frame" x="387" y="271" width="198" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="red = " id="fDK-3W-W1h">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -109,7 +116,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0e-kA-3pV">
-                        <rect key="frame" x="387" y="246" width="55" height="17"/>
+                        <rect key="frame" x="387" y="246" width="198" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="green = " id="4wY-F3-l8X">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -117,7 +124,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sk-3v-pB4">
-                        <rect key="frame" x="387" y="221" width="47" height="17"/>
+                        <rect key="frame" x="387" y="221" width="198" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="blue = " id="QZj-Ub-Z2J">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -127,7 +134,7 @@
                     <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AgG-x0-k9V">
                         <rect key="frame" x="57" y="64" width="83" height="38"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        <size key="cellSize" width="83" height="18"/>
+                        <size key="cellSize" width="71" height="18"/>
                         <size key="intercellSpacing" width="4" height="2"/>
                         <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="H77-8N-d9g">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -149,6 +156,14 @@
                             <action selector="radioGroupChanged:" target="-2" id="ubi-21-ORt"/>
                         </connections>
                     </matrix>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4S-lB-lzd">
+                        <rect key="frame" x="387" y="196" width="198" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="alpha =" id="0f5-Oc-z6b">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
