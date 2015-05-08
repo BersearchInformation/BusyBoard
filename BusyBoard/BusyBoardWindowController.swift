@@ -28,6 +28,7 @@ class BusyBoardWindowController: NSWindowController {
     @IBOutlet weak var blueTextField: NSTextField!
     @IBOutlet weak var alphaTextField: NSTextField!
     
+    @IBOutlet weak var extraTextField: NSTextField!
     // variables
     
     // slider variables - initialized here to 0 - initialized from slider in windowDidLoad() and saveInitialControlSettings()
@@ -47,6 +48,9 @@ class BusyBoardWindowController: NSWindowController {
     // check box variables
     var initialCheckBoxState = NSOffState
     
+    // color well variables
+    var initialColorWellColor = NSColor.blackColor()
+    
     override var windowNibName: String? {
         return "BusyBoardWindowController"
     }
@@ -56,6 +60,9 @@ class BusyBoardWindowController: NSWindowController {
 
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         
+        // tell the shared color panel to show alpha (default is to not show alpha)
+        NSColorPanel.sharedColorPanel().showsAlpha = true
+        
         self.saveInitialControlSettings()
         
         
@@ -63,19 +70,18 @@ class BusyBoardWindowController: NSWindowController {
         
         // initialize slider variables
         oldSliderValue = slider.doubleValue
-        
         self.adjustSliderValue(slider)              // initializes slider status text field
-        self.radioGroupChanged(radioGroup)          // conforms slider tick display to radio buttons unpacked from nib
         
         // radio buttion selection
+        self.radioGroupChanged(radioGroup)          // conforms slider tick display to radio buttons unpacked from nib
         
         
         // initialize password variables
         passwordStr = passwordTextField.stringValue
         // revealPassword = false                   // initialized above to false - no need to init it again
         
-        
-        
+        // update color component output from color well
+        self.colorWellChanged(colorWell)
         
     }
     
@@ -93,6 +99,9 @@ class BusyBoardWindowController: NSWindowController {
         
         // check box
         initialCheckBoxState = checkBox.state
+        
+        // color well
+        initialColorWellColor = colorWell.color
         
         
         
@@ -122,6 +131,10 @@ class BusyBoardWindowController: NSWindowController {
         // check box
         checkBox.state = initialCheckBoxState
         self.checkBoxChanged(checkBox)
+        
+        // color well
+        colorWell.color = initialColorWellColor
+        self.colorWellChanged(colorWell)
     }
     
     
@@ -151,7 +164,7 @@ class BusyBoardWindowController: NSWindowController {
     // radioGroup action method
     
     @IBAction func radioGroupChanged(sender: NSMatrix) {
-        NSLog("radioGroupChanged(_:)")
+        // NSLog("radioGroupChanged(_:)")
         
         var row = sender.selectedRow
         // var column = sender.selectedColumn
@@ -190,7 +203,7 @@ class BusyBoardWindowController: NSWindowController {
     
     @IBAction func passwordChanged(sender: NSTextField) {
         passwordStr = sender.stringValue
-        NSLog("passwordChanged(_:): password = \(passwordStr)")
+        // NSLog("passwordChanged(_:): password = \(passwordStr)")
         
         // if the password is revealed, update the clear text
         if revealPassword {
@@ -203,7 +216,7 @@ class BusyBoardWindowController: NSWindowController {
     
     @IBAction func revealButtonPressed(sender: NSButton) {
         revealPassword = !revealPassword
-        NSLog("revealButtonPressed(_:): revealPassword = \(revealPassword)")
+        // NSLog("revealButtonPressed(_:): revealPassword = \(revealPassword)")
         
         if revealPassword
         {
@@ -275,5 +288,7 @@ class BusyBoardWindowController: NSWindowController {
         }
     }
     
+    @IBAction func extraTextFieldChanged(sender: NSTextField) {
+    }
     
 }

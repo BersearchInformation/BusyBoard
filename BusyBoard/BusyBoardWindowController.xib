@@ -12,6 +12,7 @@
                 <outlet property="checkBox" destination="LQ1-I2-2uU" id="hZ1-W8-jEV"/>
                 <outlet property="clearTextField" destination="Gh7-aQ-o4I" id="5wk-K0-yTG"/>
                 <outlet property="colorWell" destination="r4O-cW-NhC" id="0qG-Sw-Kig"/>
+                <outlet property="extraTextField" destination="QrX-DL-HSo" id="ZCy-Mm-wh9"/>
                 <outlet property="greenTextField" destination="U0e-kA-3pV" id="DZc-mu-u91"/>
                 <outlet property="passwordTextField" destination="2zO-uO-MoN" id="AOv-JB-TXY"/>
                 <outlet property="radioGroup" destination="AgG-x0-k9V" id="V6Q-2E-xkV"/>
@@ -102,7 +103,7 @@
                     </button>
                     <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4O-cW-NhC">
                         <rect key="frame" x="312" y="238" width="44" height="23"/>
-                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="colorWellChanged:" target="-2" id="Fl1-Jg-m0t"/>
                         </connections>
@@ -163,6 +164,17 @@
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrX-DL-HSo">
+                        <rect key="frame" x="312" y="59" width="156" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ggQ-6J-2Pq">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="extraTextFieldChanged:" target="-2" id="K1V-Wk-PUV"/>
+                        </connections>
                     </textField>
                 </subviews>
             </view>
