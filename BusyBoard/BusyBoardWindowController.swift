@@ -8,9 +8,11 @@
 
 import Cocoa
 
+
 class BusyBoardWindowController: NSWindowController {
 
     // outlets
+
     
     @IBOutlet weak var slider: NSSlider!
     @IBOutlet weak var radioGroup: NSMatrix!
@@ -28,7 +30,7 @@ class BusyBoardWindowController: NSWindowController {
     @IBOutlet weak var blueTextField: NSTextField!
     @IBOutlet weak var alphaTextField: NSTextField!
     
-    @IBOutlet weak var extraTextField: NSTextField!
+    
     // variables
     
     // slider variables - initialized here to 0 - initialized from slider in windowDidLoad() and saveInitialControlSettings()
@@ -122,6 +124,8 @@ class BusyBoardWindowController: NSWindowController {
         
         // password
         passwordTextField.stringValue = initialPasswordString
+        passwordStr = initialPasswordString
+        clearTextField.stringValue = initialPasswordString
         
         // we set revealPassword to the opposite of initialRevealPassword - the action 
         // method will negate revealPassword
@@ -240,7 +244,7 @@ class BusyBoardWindowController: NSWindowController {
     @IBAction func colorWellChanged(sender: NSColorWell) {
         var red:        CGFloat = 0
         var green:      CGFloat = 0
-        var bllue:      CGFloat = 0
+        var blue:      CGFloat = 0
         var alpha:      CGFloat = 0
         
         var color: NSColor!
@@ -256,7 +260,7 @@ class BusyBoardWindowController: NSWindowController {
             
             color.getRed(&red,
                 green: &green,
-                blue: &bllue,
+                blue: &blue,
                 alpha: &alpha)
             
             var componentStr = "red = \(red)"
@@ -265,7 +269,7 @@ class BusyBoardWindowController: NSWindowController {
             componentStr = "green = \(green)"
             greenTextField.stringValue = componentStr
             
-            componentStr = "blue = \(bllue)"
+            componentStr = "blue = \(blue)"
             blueTextField.stringValue = componentStr
             
             componentStr = "alpha = \(alpha)"
@@ -287,8 +291,4 @@ class BusyBoardWindowController: NSWindowController {
             alphaTextField.stringValue = componentStr
         }
     }
-    
-    @IBAction func extraTextFieldChanged(sender: NSTextField) {
-    }
-    
 }
