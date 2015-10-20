@@ -62,8 +62,14 @@ class BusyBoardWindowController: NSWindowController {
 
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         
+        
+        // Thank you Ken Ferry
+        // http://www.cocoabuilder.com/archive/cocoa/208918-nscolorwell-and-alpha.html
+        
         // tell the shared color panel to show alpha (default is to not show alpha)
         NSColorPanel.sharedColorPanel().showsAlpha = true
+        
+        
         
         self.saveInitialControlSettings()
         
